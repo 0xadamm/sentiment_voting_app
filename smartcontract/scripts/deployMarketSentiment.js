@@ -1,7 +1,6 @@
 const hre = require("hardhat");
 
 async function main() {
-  // We get the contract to deploy
   const MarketSentiment = await hre.ethers.getContractFactory(
     "MarketSentiment"
   );
