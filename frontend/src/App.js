@@ -53,6 +53,7 @@ const App = () => {
       }
       createLiveQuery();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInitialized]);
 
   useEffect(() => {
@@ -67,6 +68,7 @@ const App = () => {
     if (modalToken) {
       fetchTokenPrice();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modalToken]);
 
   return (
