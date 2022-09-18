@@ -12,6 +12,7 @@ const App = () => {
   const [btc, setBtc] = useState(38);
   const [eth, setEth] = useState(80);
   const [link, setLink] = useState(50);
+  const [sol, setSol] = useState(33);
   const [modalPrice, setModalPrice] = useState();
   const [visible, setVisible] = useState(false);
   const [modalToken, setModalToken] = useState();
@@ -33,6 +34,7 @@ const App = () => {
       getRatio("BTC", setBtc);
       getRatio("ETH", setEth);
       getRatio("LINK", setLink);
+      getRatio("SOL", setSol);
 
       async function createLiveQuery() {
         let query = new Moralis.Query("Votes");
@@ -44,6 +46,8 @@ const App = () => {
             getRatio("ETH", setEth);
           } else if (object.attributes.ticker === "BTC") {
             getRatio("BTC", setBtc);
+          } else if (object.attributes.ticker === "SOL") {
+            getRatio("SOL", setSol);
           }
         });
       }
@@ -99,6 +103,13 @@ const App = () => {
           setModalToken={setModalToken}
           setVisible={setVisible}
         />
+        <Coin
+          perc={sol}
+          setPerc={setSol}
+          token={"SOL"}
+          setModalToken={setModalToken}
+          setVisible={setVisible}
+        />
       </div>
       <Modal
         isVisible={visible}
@@ -106,12 +117,12 @@ const App = () => {
         hasFooter={false}
         title={modalToken}>
         <div>
-          <span style={{ color: "white" }}>{`Price: `}</span>
+          <span style={{ color: "black" }}>{`Price: `}</span>
           {modalPrice}$
         </div>
 
         <div>
-          <span style={{ color: "white" }}>{`About`}</span>
+          <span style={{ color: "black" }}>{`About`}</span>
         </div>
         <div>
           {modalToken &&
