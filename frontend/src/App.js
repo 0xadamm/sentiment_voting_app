@@ -81,7 +81,7 @@ const App = () => {
         <ConnectButton />
       </div>
       <div className="instructions">
-        Where do you think these tokes are going Up of Down?
+        Where do you think these tokens are going Up or Down?
       </div>
       <div className="list">
         <Coin
